@@ -1,9 +1,9 @@
 ﻿using Modding;
 
-namespace HealthScale
+namespace MoreGeo
 {
 	public class GlobalSettings : ModSettings
 	{
-		public float HealthScale = 1.25f;
+		public int Multiplier = 2;
 	}
 }

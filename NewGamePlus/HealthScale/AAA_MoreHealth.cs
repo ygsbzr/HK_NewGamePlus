@@ -3,18 +3,14 @@ using UnityEngine;
 
 namespace HealthScale
 {
-	public class AAA_AllEnemyHealthScale : Mod, ITogglableMod, IMod, Modding.ILogger
+	public class AAA_MoreHealth : Mod, ITogglableMod, IMod, Modding.ILogger
 	{
 		public GlobalSettings gs = new GlobalSettings();
-
-		internal static AAA_AllEnemyHealthScale Instance;
 
 		public override ModSettings GlobalSettings { get => gs; set => gs = (GlobalSettings)value; }
 
 		public override void Initialize()
 		{
-			if (Instance == null) Instance = this;
-
 			Log($"Initializing with scale {gs.HealthScale}");
 			ModHooks.Instance.OnEnableEnemyHook += new OnEnableEnemyHandler(ScaleEnemyHealth);
 			ScaleHealthInternal();
@@ -29,15 +25,11 @@ namespace HealthScale
 
 		public override string GetVersion() => gs.HealthScale.ToString();
 
-		public override int LoadPriority() => 100;
-
 		private void ScaleHealthInternal()
 		{
 			HealthManager[] array = Object.FindObjectsOfType<HealthManager>();
-			foreach (HealthManager obj in array)
-			{
-				obj.hp = (int)(obj.hp * gs.HealthScale);
-			}
+
+			foreach (HealthManager obj in array) obj.hp = (int)(obj.hp * gs.HealthScale);
 		}
 
 		private bool ScaleEnemyHealth(GameObject go, bool isDead)
@@ -95,10 +87,8 @@ namespace HealthScale
 		private void UndoHealthScale()
 		{
 			HealthManager[] array = Object.FindObjectsOfType<HealthManager>();
-			foreach (HealthManager obj in array)
-			{
-				obj.hp = (int)(obj.hp / gs.HealthScale);
-			}
+
+			foreach (HealthManager obj in array) obj.hp = (int)(obj.hp / gs.HealthScale);
 		}
 	}
 }

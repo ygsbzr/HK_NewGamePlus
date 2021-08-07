@@ -4,18 +4,18 @@ namespace EnemyHPBar
 {
 	public class Settings : ModSettings
 	{
-		public float fgScale = 1f;
+		public float fgScale = 0.4f;
 
-		public float bgScale = 1f;
+		public float bgScale = 0.4f;
 
-		public float mgScale = 1f;
+		public float mgScale = 0.4f;
 
-		public float olScale = 1f;
+		public float olScale = 0.4f;
 
-		public float bossfgScale = 1f;
+		public float bossfgScale = 0.8f;
 
-		public float bossbgScale = 1f;
+		public float bossbgScale = 0.8f;
 
-		public float bossolScale = 1f;
+		public float bossolScale = 0.8f;
 	}
 }

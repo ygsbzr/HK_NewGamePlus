@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace EnemyHPBar
 {
-	public class EnemyHPBar : Mod
+	public class EnemyHPBar : Mod, ITogglableMod, IMod, Modding.ILogger
 	{
 		public static EnemyHPBar instance;
 
@@ -183,6 +183,27 @@ namespace EnemyHPBar
 			}
 
 			return false;
+		}
+
+		public void Unload()
+		{
+			Object.Destroy(spriteLoader);
+			Object.Destroy(canvas);
+			Object.Destroy(bossCanvas);
+
+			Object.Destroy(bossol);
+			Object.Destroy(bossbg);
+			Object.Destroy(bossfg);
+			Object.Destroy(ol);
+			Object.Destroy(fg);
+			Object.Destroy(mg);
+			Object.Destroy(bg);
+
+			instance = null;
+
+			ModHooks.Instance.OnEnableEnemyHook -= Instance_OnEnableEnemyHook;
+			ModHooks.Instance.OnReceiveDeathEventHook -= Instance_OnReceiveDeathEventHook;
+			UnityEngine.SceneManagement.SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
 		}
 	}
 }

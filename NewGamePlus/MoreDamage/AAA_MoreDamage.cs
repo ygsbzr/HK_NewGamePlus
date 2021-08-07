@@ -6,8 +6,6 @@ namespace MoreDamage
 	{
 		private GlobalSettings gs = new GlobalSettings();
 
-		private static AAA_MoreDamage Instance;
-
 		private TakeDamageProxy damageProxy;
 
 		private TakeHealthProxy healthProxy;
@@ -18,12 +16,10 @@ namespace MoreDamage
 
 		public override void Initialize()
 		{
-			if (Instance == null) Instance = this;
-
 			Log($"Initializing with scale {gs.ExtraDamage}");
 
-			damageProxy = new TakeDamageProxy(ILoveDamage);
-			healthProxy = new TakeHealthProxy(IReallyLoveDamage);
+			if (damageProxy == null) damageProxy = new TakeDamageProxy(ILoveDamage);
+			if (healthProxy == null) healthProxy = new TakeHealthProxy(IReallyLoveDamage);
 
 			ModHooks.Instance.TakeDamageHook += damageProxy;
 			ModHooks.Instance.TakeHealthHook += healthProxy;
