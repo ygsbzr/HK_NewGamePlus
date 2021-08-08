@@ -4,6 +4,6 @@ namespace HealthScale
 {
 	public class GlobalSettings : ModSettings
 	{
-		public float HealthScale = 1.25f;
+		public float HealthScale = 1.5f;
 	}
 }
