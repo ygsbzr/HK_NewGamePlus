@@ -63,7 +63,7 @@
 
 	To change these settings, first you need a software such as Notepad++.
     
-    Then, with the mod installed, open the game and close it. This will generate the configuration files.
+	Then, with the mod installed, open the game and close it. This will generate the configuration files in: "%APPDATA%..\LocalLow\Team Cherry\Hollow Knight\"
 
 	The mod generates four .GlobalSettings.json files along with their .bak files:
 
@@ -76,7 +76,7 @@
     	Where you set how much the geo you recieve is multiplied by.
             "Multiplier": Pretty self explanatory. 
 	
-    AAA_MoreHealth.GlobalSettings.json : 
+    	AAA_MoreHealth.GlobalSettings.json : 
 		Where you set your enemy's health scaling.
 			"HealthScale": Number value of scaling. Decimals are usable. 
 
@@ -95,6 +95,8 @@
 ****************
    "Glitches"
 ****************
+
+		- LIFEBLOOD IS SCREWED UP: USE AT YOUR OWN RISK
 
 		- Sly will only heal to 250 health on second phase. While this is a glitch, we decided to keep it, as we couldn't think of anything more annoying than an extended 2nd phase Sly.
 		- (Not a glitch) Absolute Radiance dies at ~700 health: This is part of the vanilla game, you just never had a health bar to show you.
