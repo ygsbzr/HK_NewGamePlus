@@ -97,7 +97,7 @@
 ****************
 
 		- LIFEBLOOD IS SCREWED UP: USE AT YOUR OWN RISK
-
+		- Moss Crawlers, Moss Chargers, Dirtcarvers, and all other enemies that burrow undergound's HP bar shows overground after they burrow.
 		- Sly will only heal to 250 health on second phase. While this is a glitch, we decided to keep it, as we couldn't think of anything more annoying than an extended 2nd phase Sly.
 		- (Not a glitch) Absolute Radiance dies at ~700 health: This is part of the vanilla game, you just never had a health bar to show you.
 
