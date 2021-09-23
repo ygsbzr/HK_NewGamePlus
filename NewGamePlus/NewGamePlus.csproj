@@ -11,9 +11,9 @@
 	<Optimize>true</Optimize>
 	<Deterministic>true</Deterministic>
 	<HollowKnightRefs>../../HollowKnightManaged/</HollowKnightRefs>
-	<AssemblyVersion>2.1.0.0</AssemblyVersion>
+	<AssemblyVersion>2.2.1.0</AssemblyVersion>
 	<FileVersion>2.1.0.0</FileVersion>
-	<Version>2.1.0</Version>
+	<Version>2.2.1</Version>
 	<Authors>9soulz_NG_Plus_ModPack</Authors>
 	<PackageId>9soulz_NG_Plus_ModPack</PackageId>
 	<Company>9soulz_NG_Plus_ModPack</Company>

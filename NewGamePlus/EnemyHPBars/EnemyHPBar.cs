@@ -55,7 +55,7 @@ namespace EnemyHPBar
 
 			foreach (string res in Assembly.GetExecutingAssembly().GetManifestResourceNames().Where(t => t.EndsWith("png")))
 			{
-				string properRes = res.Replace("IlusensFallacy_NG_ModPack.EnemyHPBars.Resources.", "");
+				string properRes = res.Replace("9soulz_NG_Plus_ModPack.EnemyHPBars.Resources.", "");
 				string resPath = DATA_DIR + "/" + properRes;
 
 				if (File.Exists(resPath)) continue;
