@@ -1,8 +1,8 @@
 ﻿using Modding;
-
+using Modding.Delegates;
 namespace MoreDamage
 {
-	public class AAA_MoreDamage : Mod, ITogglableMod, IMod, ILogger
+	public class AAA_MoreDamage : Mod, ITogglableMod, IMod, ILogger,IGlobalSettings<GlobalSettings>
 	{
 		private GlobalSettings gs = new GlobalSettings();
 
@@ -10,7 +10,8 @@ namespace MoreDamage
 
 		private TakeHealthProxy healthProxy;
 
-		public override ModSettings GlobalSettings { get => gs; set => gs = (GlobalSettings)value; }
+		public GlobalSettings OnSaveGlobal() => gs;
+		public void OnLoadGlobal(GlobalSettings s) => gs = s;
 
 		public override string GetVersion() => gs.ExtraDamage.ToString();
 
@@ -21,8 +22,8 @@ namespace MoreDamage
 			if (damageProxy == null) damageProxy = new TakeDamageProxy(ILoveDamage);
 			if (healthProxy == null) healthProxy = new TakeHealthProxy(IReallyLoveDamage);
 
-			ModHooks.Instance.TakeDamageHook += damageProxy;
-			ModHooks.Instance.TakeHealthHook += healthProxy;
+			ModHooks.TakeDamageHook += damageProxy;
+			ModHooks.TakeHealthHook += healthProxy;
 		}
 
 		private int IncreaseDamage(int damage)
@@ -44,8 +45,8 @@ namespace MoreDamage
 		{
 			Log("Unloading...");
 
-			ModHooks.Instance.TakeDamageHook -= damageProxy;
-			ModHooks.Instance.TakeHealthHook -= healthProxy;
+			ModHooks.TakeDamageHook -= damageProxy;
+			ModHooks.TakeHealthHook -= healthProxy;
 		}
 	}
 }

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using HutongGames.PlayMaker;
-using ModCommon.Util;
 using UnityEngine;
-
+using Satchel;
 namespace HealthScale
 {
     static class ManualChanges

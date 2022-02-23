@@ -1,25 +1,26 @@
 ﻿using Modding;
 using UnityEngine;
-
+using Modding.Delegates;
 namespace HealthScale
 {
-	public class AAA_MoreHealth : Mod, ITogglableMod, IMod, Modding.ILogger
+	public class AAA_MoreHealth : Mod, ITogglableMod, IMod, Modding.ILogger,IGlobalSettings<GlobalSettings>
 	{
 		public GlobalSettings gs = new GlobalSettings();
-
-		public override ModSettings GlobalSettings { get => gs; set => gs = (GlobalSettings)value; }
+		public GlobalSettings OnSaveGlobal() => gs;
+		public void OnLoadGlobal(GlobalSettings s)=>gs = s;
+		
 
 		public override void Initialize()
 		{
 			Log($"Initializing with scale {gs.HealthScale}");
-			ModHooks.Instance.OnEnableEnemyHook += new OnEnableEnemyHandler(ScaleEnemyHealth);
+			ModHooks.OnEnableEnemyHook += new OnEnableEnemyHandler(ScaleEnemyHealth);
 			ScaleHealthInternal();
 		}
 
 		public void Unload()
 		{
 			Log("Unloading...");
-			ModHooks.Instance.OnEnableEnemyHook -= new OnEnableEnemyHandler(ScaleEnemyHealth);
+			ModHooks.OnEnableEnemyHook -= new OnEnableEnemyHandler(ScaleEnemyHealth);
 			UndoHealthScale();
 		}
 

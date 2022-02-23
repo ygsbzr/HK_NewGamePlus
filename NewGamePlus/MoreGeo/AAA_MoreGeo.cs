@@ -2,11 +2,12 @@
 
 namespace MoreGeo
 {
-	public class AAA_MoreGeo : Mod, ITogglableMod, IMod
+	public class AAA_MoreGeo : Mod, ITogglableMod, IMod,IGlobalSettings<GlobalSettings>
 	{
 		public GlobalSettings gs = new GlobalSettings();
 
-		public override ModSettings GlobalSettings { get => gs; set => gs = (GlobalSettings)value; }
+		public GlobalSettings OnSaveGlobal() => gs;
+		public void OnLoadGlobal(GlobalSettings s) => gs = s;
 
 		public override string GetVersion() => $"{gs.Multiplier}x";
 

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace EnemyHPBar
 {
-	public class EnemyHPBar : Mod, ITogglableMod, IMod, Modding.ILogger
+	public class EnemyHPBar : Mod, ITogglableMod, IMod, Modding.ILogger,IGlobalSettings<Settings>
 	{
 		public static EnemyHPBar instance;
 
@@ -25,7 +25,7 @@ namespace EnemyHPBar
 		public const string HPBAR_BOSSBG = "bossbg.png";
 		public const string SPRITE_FOLDER = "CustomHPBar";
 
-		public static readonly string DATA_DIR = Path.GetFullPath(Application.dataPath + "/Managed/Mods/" + SPRITE_FOLDER);
+		public static readonly string DATA_DIR = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), SPRITE_FOLDER);
 
 		public static Sprite bg;
 		public static Sprite mg;
@@ -35,13 +35,15 @@ namespace EnemyHPBar
 		public static Sprite bossfg;
 		public static Sprite bossol;
 
-		internal Settings _globalSettings = new Settings();
 
 		public static List<string> ActiveBosses;
 
 		private static readonly FieldInfo DEATH_FI = typeof(EnemyDeathEffects).GetField("enemyDeathType", BindingFlags.Instance | BindingFlags.NonPublic);
 
-		public override ModSettings GlobalSettings { get => _globalSettings; set => _globalSettings = (Settings)value; }
+		public  Settings _globalSettings = new();
+		public Settings OnSaveGlobal() => _globalSettings;
+		public void OnLoadGlobal(Settings s) => _globalSettings = s;
+
 
 		public override string GetVersion() => "2.1.1";
 
@@ -71,8 +73,8 @@ namespace EnemyHPBar
 
 			LoadLoader();
 
-			ModHooks.Instance.OnEnableEnemyHook += Instance_OnEnableEnemyHook;
-			ModHooks.Instance.OnReceiveDeathEventHook += Instance_OnReceiveDeathEventHook;
+			ModHooks.OnEnableEnemyHook += Instance_OnEnableEnemyHook;
+			ModHooks.OnReceiveDeathEventHook += Instance_OnReceiveDeathEventHook;
 			UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 
 			canvas = CanvasUtil.CreateCanvas(RenderMode.WorldSpace, new Vector2(1920f, 1080f));
@@ -201,8 +203,8 @@ namespace EnemyHPBar
 
 			instance = null;
 
-			ModHooks.Instance.OnEnableEnemyHook -= Instance_OnEnableEnemyHook;
-			ModHooks.Instance.OnReceiveDeathEventHook -= Instance_OnReceiveDeathEventHook;
+			ModHooks.OnEnableEnemyHook -= Instance_OnEnableEnemyHook;
+			ModHooks.OnReceiveDeathEventHook -= Instance_OnReceiveDeathEventHook;
 			UnityEngine.SceneManagement.SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
 		}
 	}

@@ -2,7 +2,7 @@
 
 namespace MoreDamage
 {
-	public class GlobalSettings : ModSettings
+	public class GlobalSettings
 	{
 		public bool BadHook;
 

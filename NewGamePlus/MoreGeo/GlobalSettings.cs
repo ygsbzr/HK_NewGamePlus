@@ -2,7 +2,7 @@
 
 namespace MoreGeo
 {
-	public class GlobalSettings : ModSettings
+	public class GlobalSettings
 	{
 		public int Multiplier = 2;
 	}

@@ -2,7 +2,7 @@
 
 namespace EnemyHPBar
 {
-	public class Settings : ModSettings
+	public class Settings
 	{
 		public float fgScale = 0.4f;
 

@@ -2,7 +2,7 @@
   <PropertyGroup>
 	<RootNamespace>9soulz_NG_Plus_ModPack</RootNamespace>
 	<AssemblyName>9soulz_NG_Plus_ModPack</AssemblyName>
-	<TargetFramework>net35</TargetFramework>
+	<TargetFramework>net472</TargetFramework>
 	<AssemblyTitle>IlusensFallacy_NG_ModPack</AssemblyTitle>
 	<Product>9soulz_NG_Plus_ModPack</Product>
 	<Description>9soulz_NG_Plus_ModPack</Description>
@@ -31,28 +31,34 @@
   </ItemGroup>
   <ItemGroup>
 	<Reference Include="Assembly-CSharp">
-	  <HintPath>$(HollowKnightRefs)/Assembly-CSharp.dll</HintPath>
+	  <HintPath>..\..\1.5Moddingapi\Assembly-CSharp.dll</HintPath>
+	</Reference>
+	<Reference Include="MMHOOK_Assembly-CSharp">
+	  <HintPath>..\..\1.5Moddingapi\MMHOOK_Assembly-CSharp.dll</HintPath>
+	</Reference>
+	<Reference Include="MMHOOK_PlayMaker">
+	  <HintPath>..\..\1.5Moddingapi\MMHOOK_PlayMaker.dll</HintPath>
 	</Reference>
 	<Reference Include="PlayMaker">
-	  <HintPath>$(HollowKnightRefs)/PlayMaker.dll</HintPath>
+	  <HintPath>..\..\1.5Moddingapi\PlayMaker.dll</HintPath>
+	</Reference>
+	<Reference Include="Satchel">
+	  <HintPath>..\..\1.5Moddingapi\Satchel-v0.7.5.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEngine">
-	  <HintPath>$(HollowKnightRefs)/UnityEngine.dll</HintPath>
+	  <HintPath>..\..\1.5Moddingapi\UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEngine.CoreModule">
-	  <HintPath>$(HollowKnightRefs)/UnityEngine.CoreModule.dll</HintPath>
+	  <HintPath>..\..\1.5Moddingapi\UnityEngine.CoreModule.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEngine.ImageConversionModule">
-	  <HintPath>$(HollowKnightRefs)/UnityEngine.ImageConversionModule.dll</HintPath>
+	  <HintPath>..\..\1.5Moddingapi\UnityEngine.ImageConversionModule.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEngine.UI">
-	  <HintPath>$(HollowKnightRefs)/UnityEngine.UI.dll</HintPath>
+	  <HintPath>..\..\1.5Moddingapi\UnityEngine.UI.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEngine.UIModule">
-	  <HintPath>$(HollowKnightRefs)/UnityEngine.UIModule.dll</HintPath>
-	</Reference>
-	<Reference Include="ModCommon">
-	  <HintPath>$(HollowKnightRefs)/Mods/ModCommon.dll</HintPath>
+	  <HintPath>..\..\1.5Moddingapi\UnityEngine.UIModule.dll</HintPath>
 	</Reference>
   </ItemGroup>
 </Project>
