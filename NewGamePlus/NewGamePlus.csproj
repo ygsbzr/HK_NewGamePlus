@@ -54,6 +54,9 @@
 	<Reference Include="UnityEngine.ImageConversionModule">
 	  <HintPath>..\..\1.5Moddingapi\UnityEngine.ImageConversionModule.dll</HintPath>
 	</Reference>
+	<Reference Include="UnityEngine.Physics2DModule">
+	  <HintPath>..\..\1.5Moddingapi\UnityEngine.Physics2DModule.dll</HintPath>
+	</Reference>
 	<Reference Include="UnityEngine.UI">
 	  <HintPath>..\..\1.5Moddingapi\UnityEngine.UI.dll</HintPath>
 	</Reference>

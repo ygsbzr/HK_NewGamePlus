@@ -11,18 +11,20 @@ namespace MoreGeo
 
 		public override string GetVersion() => $"{gs.Multiplier}x";
 
-		public override void Initialize() => On.GeoControl.Start += Start;
+		public override void Initialize() => On.GeoControl.OnTriggerEnter2D += this.GeoControl_OnTriggerEnter2D;
 
-        private void Start(On.GeoControl.orig_Start orig, GeoControl self)
+        private void GeoControl_OnTriggerEnter2D(On.GeoControl.orig_OnTriggerEnter2D orig, GeoControl self, UnityEngine.Collider2D collision)
         {
-            for(int i=0;i<self.sizes.Length;i++)
+			if(collision.tag=="HeroBox")
             {
-				self.sizes[i].value*=gs.Multiplier;
-            }
-			orig(self);
+				GeoControl.Size size = ReflectionHelper.GetField<GeoControl, GeoControl.Size>(self, "size");
+				size.value *= gs.Multiplier;
+				ReflectionHelper.SetField<GeoControl, GeoControl.Size>(self, "size", size);
+			}
+			orig(self,collision);
         }
 
-        public void Unload() => On.GeoControl.Start -= Start;
+        public void Unload() => On.GeoControl.OnTriggerEnter2D -= this.GeoControl_OnTriggerEnter2D;
 
 	}
 }
