@@ -11,10 +11,18 @@ namespace MoreGeo
 
 		public override string GetVersion() => $"{gs.Multiplier}x";
 
-		public override void Initialize() => On.HeroController.AddGeo += AddGeo;
+		public override void Initialize() => On.GeoControl.Start += Start;
 
-		public void Unload() => On.HeroController.AddGeo -= AddGeo;
+        private void Start(On.GeoControl.orig_Start orig, GeoControl self)
+        {
+            for(int i=0;i<self.sizes.Length;i++)
+            {
+				self.sizes[i].value*=gs.Multiplier;
+            }
+			orig(self);
+        }
 
-		private void AddGeo(On.HeroController.orig_AddGeo orig, HeroController self, int amount) => orig.Invoke(self, amount * gs.Multiplier);
+        public void Unload() => On.GeoControl.Start -= Start;
+
 	}
 }

@@ -1,11 +1,5 @@
 
-			       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!YOUR VERSION OF HOLLOW KNIGHT MUST BE VERSION 1.4.3.2 AS OF RIGHT NOW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ALSO MAKE SURE YOU DISABLE EnemyHPBar MOD IF YOU HAVE IT, THIS PACK USES A CUSTOM VERSION OF IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-													    		 Instructions on how to downpatch soon to follow.
-
-	If you already have your game downpatched and have this installed, know your way around modding, or got this from ModInstaller, skip past Installation and head over to the Settings section. 
-
+		  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! MAKE SURE YOU DISABLE EnemyHPBar MOD IF YOU HAVE IT, THIS PACK USES A CUSTOM VERSION OF IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ***********
   Purpose
 ***********
@@ -47,12 +41,12 @@
 
 	1) First you will need to install the Hollow Knight mod installer: https://radiance.host/mods/ModInstaller.exe 
     		1a) If it's not opening for you try downloading again. Mine took a second download for some reason
-	2) After you follow the instructions for how to install ModInstaller, install ModCommon from the list of mods in ModInstaller.
+	2) After you follow the instructions for how to install ModInstaller, install Satchel from the list of mods in ModInstaller.
 	3) After Satchel is installed, click Manually Install Mods, and select the 9soulz_NG_Plus_ModPack.dll file for the mod.
     4) This shouldn't happen, but if you recieve any errors with EnemyHPBar and have never installed the mod before, take these steps:
     		4a) MAKE SURE YOU HAVE THE REGULAR EnemyHPBar MOD DISABLED OR EVEN UNINSTALLED.
             4b) Download the CustomHPBar folder.            
-            4c) Navigate to C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods (or wherever you have your mods installed)
+            4c) Navigate to wherever you have your mods installed
             4d) Drag all of the assets from the CustomHPBar folder into the folder in your mod installed folder.
 
 ***************
